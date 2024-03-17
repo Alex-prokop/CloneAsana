@@ -1,0 +1,57 @@
+
+<div mat-dialog-title>
+  <h2>Форма заполнения задачи</h2>
+</div>
+<form [formGroup]="taskForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Заголовок задачи</mat-label>
+        <input matInput type="text" formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Описание задачи</mat-label>
+        <input matInput type="text" formControlName="description">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Приоритет</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option *ngFor="let val of priority" [value]="val">{{ val }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Дэдлайн</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="deadline">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Статус задачи</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let val of status" [value]="val">{{ val }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Исполнитель</mat-label>
+        <mat-select formControlName="assignees">
+          <mat-option *ngFor="let val of assignees" [value]="val">{{ val }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+  </div>
+  
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button>Close</button>
+    <button mat-raised-button color="primary"  type="submit">Save</button>
+  </div>
+
+</form>

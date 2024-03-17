@@ -1,0 +1,24 @@
+.content {
+  padding-top: 10px;
+}
+
+.row {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+}
+.row mat-form-field {
+  width: 100%;
+}
+
+.action {
+  padding: 0px 25px 20px;
+}
+.action button {
+  flex: 1;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=task-add-edit.component.css.map */
